@@ -2,10 +2,11 @@ const { Configuration, OpenAIApi } = require("openai");
 const express = require("express");
 const bodyParser = require('body-parser')
 const cors = require('cors')
+const chatAPIKey = process.env.chatAPIKey;
 
 const configuration = new Configuration({
     organization: "org-OopekGf8qFEOTNI3a5ES7fI5",
-    apiKey: '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',
+    apiKey: chatAPIKey
 });
 const openai = new OpenAIApi(configuration);
 
