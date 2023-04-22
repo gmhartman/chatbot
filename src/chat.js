@@ -24,7 +24,7 @@ function Chat() {
     setInput("");
     setChatLog(chatLogNew);
     const messages = chatLogNew.map((message) => message.message).join("\n");
-    const response = await fetch("/", {
+    const response = await fetch("https://murmuring-spire-37547.herokuapp.com/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
