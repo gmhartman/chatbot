@@ -25,7 +25,7 @@ function Chat() {
     setInput("");
     setChatLog(chatLogNew);
     const messages = chatLogNew.map((message) => message.message).join("\n");
-    const response = await fetch(`${process.env.REACT_APP_API_URL}/`, {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
