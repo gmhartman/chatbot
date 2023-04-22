@@ -5,6 +5,7 @@ const express = require("express");
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const chatAPIKey = process.env.CHATGPT_API_KEY;
+const sslRedirect = require('heroku-ssl-redirect');
 
 const configuration = new Configuration({
     organization: "org-OopekGf8qFEOTNI3a5ES7fI5",
@@ -27,6 +28,8 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
 });
+
+app.use(sslRedirect());
 
 app.post('/', async (req, res) => {
     const { message } = req.body;
