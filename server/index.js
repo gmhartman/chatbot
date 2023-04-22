@@ -1,5 +1,6 @@
 const { Configuration, OpenAIApi } = require("openai");
 require('dotenv').config();
+const path = require('path');
 const express = require("express");
 const bodyParser = require('body-parser')
 const cors = require('cors')
@@ -15,9 +16,16 @@ const app = express();
 app.use(bodyParser.json())
 app.use(cors())
 
+//remove if not working
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   next();
+});
+
+app.use(express.static(path.join(__dirname, 'client/build')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
 });
 
 app.post('/', async (req, res) => {
