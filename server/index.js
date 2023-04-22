@@ -4,7 +4,6 @@ const express = require("express");
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const chatAPIKey = process.env.CHATGPT_API_KEY;
-console.log(chatAPIKey);
 
 const configuration = new Configuration({
     organization: "org-OopekGf8qFEOTNI3a5ES7fI5",

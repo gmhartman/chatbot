@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+const PORT = process.env.PORT || 3080;
 // import axios from "axios";
 
 function Chat() {
@@ -24,7 +25,7 @@ function Chat() {
     setInput("");
     setChatLog(chatLogNew);
     const messages = chatLogNew.map((message) => message.message).join("\n");
-    const response = await fetch("murmuring-spire-37547.herokuapp.com", {
+    const response = await fetch(`murmuring-spire-37547.herokuapp.com:${PORT}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
