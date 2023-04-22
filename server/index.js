@@ -15,6 +15,11 @@ const app = express();
 app.use(bodyParser.json())
 app.use(cors())
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  next();
+});
+
 app.post('/', async (req, res) => {
     const { message } = req.body;
     console.log(message, 'message')
